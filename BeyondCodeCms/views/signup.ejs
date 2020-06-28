@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+		<title>Signup</title>
+	<script>
+			window.setTimeout(function () {
+    $(".alert-info").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
+    });
+}, 2000);
+	
+	</script>
+	<%- include ('partials/signupheader.ejs') %>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form"  action="/authentication/signup" method="POST">
+					<% if(shouldShowAlert) { %>
+						<div class="<%=alertClass %> text-center h-6" role="alert">
+								<%= message %>
+						   </div>
+						 <% }else{
+						   
+						 } %>
+						 <%if(checksession){%>
+							<div class="alert alert-info" >
+								<button type="button" class="close" data-dismiss="alert">x</button>
+								<strong>Info! </strong>
+								You Are Already logged into the system
+							</div>
+							<%}%>
+							<a class="login100-form-title p-b-26" href="/index/">"Beyond Code"</a>
+							<hr>
+					<span class="login100-form-title">
+						Create An Account
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Enter valid name">
+						<input class="input100" type="text"  value="<%= firstname %>" name="firstname">
+						<span class="focus-input100" data-placeholder="<%= hintfname %>"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter valid name">
+						<input class="input100" type="text"  value="<%= lastname %>" name="lastname">
+						<span class="focus-input100" data-placeholder="<%= hintlname %>"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter valid email">
+						<input class="input100" type="text" value="<%= email %>"  name="email">
+						<span class="focus-input100" data-placeholder="<%= hintemail %>"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Enter valid user name">
+							<input class="input100" type="text" value="<%= username %>"  name="username">
+							<span class="focus-input100" data-placeholder="<%= hintusername %>"></span>
+						</div>
+						
+
+                    
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass"
+						>
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+					<% if(passerror) { %>
+						<p class="alert alert-danger" role="alert">
+								<%= error %>
+						</p>
+						 <% }else{
+						   
+						 } %>
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="repass" 
+						>
+						<span class="focus-input100" data-placeholder="Retype password"></span>
+					</div>
+					
+							
+					
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" >
+								Signup
+							</button>
+						</div>
+					</div>
+					
+					<br>
+					<div class="form-group row pt-0">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+							<a href="/authentication/facebook"><button href="#" class="btn btn-block btn-social btn-facebook " type="button">Continue with Facebook</button>
+							</a></div>
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<a href="/authentication/google"><button class="btn  btn-block btn-social btn-google" type="button">Continue with Google</button>
+							</a></div>
+					</div>
+						
+					<div class="space"></div>
+					<div class="text-center p-t-70">
+							
+						<span class="txt1">
+							Already have an account?
+						</span>
+
+						<a class="txt2 p-b" href="/authentication/login">
+							Login
+						</a>
+					</div>
+
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	<%- include ('partials/footer.ejs') %>
+
+	<div id="dropDownSelect1"></div>
+	
+	<%- include ('partials/signupscripts.ejs') %>
+	
+</body>
+</html>

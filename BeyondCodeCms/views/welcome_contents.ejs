@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+		<title>Signup</title>
+	<script>
+			window.setTimeout(function () {
+    $(".alert-info").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
+    });
+}, 2000);
+	
+	</script>
+	<%- include ('partials/signupheader.ejs') %>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form"  action="/authentication/signup" method="POST">
+					<% if(shouldShowAlert) { %>
+						<div class="<%=alertClass %> text-center h-6" role="alert">
+								<%= message %>
+						   </div>
+						 <% }else{
+						   
+						 } %>
+							<a class="login100-form-title p-b-26" href="/index/">"Beyond Code"</a>
+							<hr>
+					<span class="login100-form-title">
+						You Are On Your Way
+					</span>
+					<p>Enter Your website details</p>
+					
+						 
+						
+					<div class="wrap-input100 validate-input" data-validate = "Database Name">
+						<input class="input100" type="text"  value="<%= databasename %>" name="databasename">
+						<span class="focus-input100" data-placeholder="<%= hintdatabasename %>"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter valid name">
+						<input class="input100" type="text"  value="<%= lastname %>" name="lastname">
+						<span class="focus-input100" data-placeholder="<%= hintlname %>"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter valid email">
+						<input class="input100" type="text" value="<%= email %>"  name="email">
+						<span class="focus-input100" data-placeholder="<%= hintemail %>"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Enter valid user name">
+							<input class="input100" type="text" value="<%= username %>"  name="username">
+							<span class="focus-input100" data-placeholder="<%= hintusername %>"></span>
+						</div>
+						
+
+                    
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass"
+						>
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+					<% if(passerror) { %>
+						<p class="alert alert-danger" role="alert">
+								<%= error %>
+						</p>
+						 <% }else{
+						   
+						 } %>
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="repass" 
+						>
+						<span class="focus-input100" data-placeholder="Retype password"></span>
+					</div>
+					
+							
+					
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" >
+								Signup
+							</button>
+						</div>
+					</div>
+					
+						
+					<div class="space"></div>
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	<%- include ('partials/footer.ejs') %>
+
+	<div id="dropDownSelect1"></div>
+	
+	<%- include ('partials/signupscripts.ejs') %>
+	
+</body>
+</html>

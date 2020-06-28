@@ -1,0 +1,19 @@
+.btn-lg {
+    padding: 11px 20px;
+    font-size: 15px;
+}
+.btn-facebook {
+    margin-top: 20px;
+    height: 50px;
+    color: #fff;
+    background-color: #3c73df;
+    border-color: #3c73df;
+    text-align: center;
+}
+.btn-google {
+    margin-top: 20px;
+    height: 50px;
+    color: #fff;
+    background-color: #d4493c;
+    border-color: #d4493c;
+}
